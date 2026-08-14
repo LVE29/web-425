@@ -1,2 +1,6 @@
-# web-425
-Coursework for WEB 425 Angular with TypeScript
+# WEB 425 Angular with TypeScript
+
+## Contributors
+
+- Professor Richard Krasso
+- Leslie Espino
