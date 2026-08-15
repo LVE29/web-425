@@ -1,1 +1,483 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #110819;
+  color: #f8f1df;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Header */
+
+header {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid rgba(242, 212, 111, 0.4);
+  background: rgba(17, 7, 24, 0.96);
+  box-shadow: 0 0 24px rgba(188, 116, 211, 0.2);
+}
+
+.header-content {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: 1.15rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand {
+  margin: 0;
+  color: #f5d979;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 0 8px rgba(245, 217, 121, 0.8),
+    0 0 18px rgba(210, 133, 231, 0.5);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+nav a {
+  color: #e9ceff;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: #fff2a8;
+  text-shadow: 0 0 10px rgba(245, 217, 121, 0.85);
+}
+
+nav a[aria-disabled="true"] {
+  color: #ad9ab8;
+  cursor: default;
+}
+
+/* Page background */
+
+main {
+  min-height: calc(100vh - 150px);
+}
+
+.home-page {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 150px);
+  padding: clamp(3rem, 7vh, 6rem) 5%;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 2, 13, 0.58) 0%,
+      rgba(24, 7, 33, 0.2) 38%,
+      rgba(24, 7, 33, 0.12) 60%,
+      rgba(8, 2, 13, 0.5) 100%
+    ),
+    url("/assets/firefly-forest-background.png") center center / cover no-repeat;
+}
+
+/* Subtle animated rain over the background */
+
+.home-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.13;
+  background: repeating-linear-gradient(
+    105deg,
+    transparent 0,
+    transparent 20px,
+    rgba(238, 221, 250, 0.6) 21px,
+    transparent 22px,
+    transparent 40px
+  );
+  animation: rainfall 6s linear infinite;
+}
+
+/* Two-sided layout keeps the path visible */
+
+.page-layout {
+  position: relative;
+  z-index: 3;
+  width: min(1400px, 100%);
+  min-height: 650px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns:
+    minmax(300px, 430px)
+    minmax(330px, 450px);
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(5rem, 16vw, 16rem);
+}
+
+/* Elegant fantasy lettering */
+
+h1,
+h2,
+h3,
+h4,
+.brand {
+  font-family: Gabriola, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+}
+
+/* Left title area */
+
+.hero-content {
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(242, 212, 111, 0.32);
+  border-radius: 18px;
+  background: rgba(20, 7, 29, 0.64);
+  text-align: center;
+  backdrop-filter: blur(5px);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.45),
+    0 0 28px rgba(197, 117, 221, 0.18);
+}
+
+h1 {
+  margin: 0 0 1.35rem;
+  color: #ffe995;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 600;
+  text-shadow:
+    0 0 10px rgba(255, 224, 117, 0.7),
+    0 0 28px rgba(216, 130, 235, 0.5);
+}
+
+h2 {
+  margin: 0 auto 2rem;
+  color: #ead8f7;
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  font-weight: 400;
+}
+
+.begin-button {
+  display: inline-block;
+  padding: 0.9rem 1.75rem;
+  border: 1px solid #f2d46f;
+  border-radius: 999px;
+  background: rgba(242, 212, 111, 0.14);
+  color: #fff5bd;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-decoration: none;
+  box-shadow:
+    0 0 12px rgba(242, 212, 111, 0.45),
+    inset 0 0 12px rgba(242, 212, 111, 0.1);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.begin-button:hover,
+.begin-button:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(242, 212, 111, 0.25);
+  box-shadow:
+    0 0 22px rgba(242, 212, 111, 0.75),
+    inset 0 0 14px rgba(242, 212, 111, 0.15);
+}
+
+/* Right parchment selection panel */
+
+.features {
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border: 2px solid #a07e45;
+  border-radius: 14px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.5),
+      transparent 30%
+    ),
+    linear-gradient(145deg, #f6edcf, #dcc797);
+  color: #283829;
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.58),
+    0 0 25px rgba(242, 212, 111, 0.3),
+    inset 0 0 30px rgba(103, 69, 26, 0.18);
+}
+
+.features h3 {
+  margin: 0 0 1.75rem;
+  color: #30482f;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 600;
+  text-align: center;
+}
+
+.features ul {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+  list-style: none;
+}
+
+.features li {
+  position: relative;
+  min-height: 52px;
+  padding: 1rem 1rem 1rem 3.5rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(54, 78, 49, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 252, 232, 0.5);
+  font-weight: 700;
+}
+
+/* Monstera leaf icons */
+
+.features li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  width: 30px;
+  height: 30px;
+  background-image: url("/assets/monstera-leaf.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translateY(-50%) rotate(-10deg);
+}
+
+.features li:nth-child(even)::before {
+  transform: translateY(-50%) rotate(10deg);
+}
+
+.features h4 {
+  margin: 1.8rem 0 0;
+  color: #71468a;
+  font-size: 1.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Animated fireflies */
+
+.firefly {
+  position: absolute;
+  z-index: 4;
+  width: 19px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #21170d 0%,
+    #352512 38%,
+    #dfff72 42%,
+    #f2d46f 100%
+  );
+  box-shadow:
+    0 0 8px #dfff72,
+    0 0 18px #f2d46f,
+    0 0 32px rgba(242, 212, 111, 0.85);
+  animation: firefly-flight 3s ease-in-out infinite alternate;
+}
+
+.firefly::before,
+.firefly::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  width: 9px;
+  height: 6px;
+  border: 1px solid rgba(245, 236, 220, 0.75);
+  border-radius: 70% 20% 70% 20%;
+  background: rgba(235, 224, 241, 0.3);
+}
+
+.firefly::before {
+  top: -6px;
+  transform: rotate(-28deg);
+}
+
+.firefly::after {
+  bottom: -6px;
+  transform: rotate(28deg);
+}
+
+.firefly-one {
+  top: 18%;
+  left: 34%;
+  --start-angle: -25deg;
+  --end-angle: 12deg;
+  --move-x: 22px;
+  --move-y: -18px;
+}
+
+.firefly-two {
+  top: 39%;
+  right: 38%;
+  --start-angle: 150deg;
+  --end-angle: 200deg;
+  --move-x: -25px;
+  --move-y: 15px;
+  animation-delay: 0.7s;
+}
+
+.firefly-three {
+  top: 62%;
+  left: 42%;
+  --start-angle: 35deg;
+  --end-angle: 80deg;
+  --move-x: 28px;
+  --move-y: 10px;
+  animation-delay: 1.2s;
+}
+
+.firefly-four {
+  top: 72%;
+  right: 35%;
+  --start-angle: 220deg;
+  --end-angle: 175deg;
+  --move-x: -20px;
+  --move-y: -20px;
+  animation-delay: 1.8s;
+}
+
+.firefly-five {
+  top: 25%;
+  right: 48%;
+  --start-angle: 95deg;
+  --end-angle: 135deg;
+  --move-x: 14px;
+  --move-y: 24px;
+  animation-delay: 2.2s;
+}
+
+/* Footer */
+
+footer {
+  position: relative;
+  z-index: 10;
+  padding: 1.2rem;
+  border-top: 1px solid rgba(242, 212, 111, 0.28);
+  background: #100717;
+  color: #ddc8eb;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Animations */
+
+@keyframes firefly-flight {
+  from {
+    opacity: 0.5;
+    transform: translate(0, 0) rotate(var(--start-angle)) scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(var(--move-x), var(--move-y)) rotate(var(--end-angle))
+      scale(1.2);
+  }
+}
+
+@keyframes rainfall {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 190px;
+  }
+}
+
+/* Responsive layout */
+
+@media (max-width: 1000px) {
+  .page-layout {
+    grid-template-columns: minmax(280px, 390px) minmax(300px, 410px);
+    gap: 3rem;
+  }
+
+  h1 {
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+  }
+}
+
+@media (max-width: 780px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .home-page {
+    padding: 3rem 1.25rem;
+    background-position: center;
+  }
+
+  .page-layout {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-content,
+  .features {
+    width: min(100%, 520px);
+    margin: 0 auto;
+  }
+
+  .firefly {
+    opacity: 0.75;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .home-page::before,
+  .firefly {
+    animation: none;
+  }
+}
