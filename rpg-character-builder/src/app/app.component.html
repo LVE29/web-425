@@ -3,9 +3,17 @@
     <p class="brand">✦ Firefly Forest Character Builder ✦</p>
 
     <nav aria-label="Primary navigation">
-      <a href="/">Home</a>
-      <a href="#" aria-disabled="true">Character Classes</a>
-      <a href="#" aria-disabled="true">Spellbook</a>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Home
+      </a>
+
+      <a routerLink="/classes" routerLinkActive="active"> Character Classes </a>
+
+      <a routerLink="/about" routerLinkActive="active"> About </a>
     </nav>
   </div>
 </header>

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -102,26 +103,6 @@ main {
       rgba(8, 2, 13, 0.5) 100%
     ),
     url("/assets/firefly-forest-background.png") center center / cover no-repeat;
-}
-
-/* Subtle animated rain over the background */
-
-.home-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.13;
-  background: repeating-linear-gradient(
-    105deg,
-    transparent 0,
-    transparent 20px,
-    rgba(238, 221, 250, 0.6) 21px,
-    transparent 22px,
-    transparent 40px
-  );
-  animation: rainfall 6s linear infinite;
 }
 
 /* Two-sided layout keeps the path visible */
@@ -248,44 +229,55 @@ h2 {
   list-style: none;
 }
 
-.features li {
-  position: relative;
-  min-height: 52px;
-  padding: 1rem 1rem 1rem 3.5rem;
-  display: flex;
-  align-items: center;
-  border: 1px solid rgba(54, 78, 49, 0.28);
-  border-radius: 8px;
-  background: rgba(255, 252, 232, 0.5);
-  font-weight: 700;
-}
-
-/* Monstera leaf icons */
+/* Illustrated gemstone icons */
 
 .features li::before {
-  content: "";
   position: absolute;
   top: 50%;
   left: 0.8rem;
-  width: 30px;
-  height: 30px;
-  background-image: url("/assets/monstera-leaf.png");
+  width: 32px;
+  height: 32px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transform: translateY(-50%) rotate(-10deg);
+  transform: translateY(-50%);
+  content: "";
 }
 
-.features li:nth-child(even)::before {
-  transform: translateY(-50%) rotate(10deg);
+/* Amber: Choose a character class */
+
+.features li:nth-child(1)::before {
+  background-image: url("/assets/amber-gem.png");
 }
 
-.features h4 {
-  margin: 1.8rem 0 0;
-  color: #71468a;
-  font-size: 1.9rem;
-  font-weight: 600;
-  text-align: center;
+/* Sapphire: Select magical abilities */
+
+.features li:nth-child(2)::before {
+  background-image: url("/assets/sapphire-gem.png");
+}
+
+/* Ruby: Create a character backstory */
+
+.features li:nth-child(3)::before {
+  background-image: url("/assets/ruby-gem.png");
+}
+
+/* Emerald: Choose weapons and equipment */
+
+.features li:nth-child(4)::before {
+  background-image: url("/assets/emerald-gem.png");
+}
+
+/* Amethyst: Customize appearance */
+
+.features li:nth-child(5)::before {
+  background-image: url("/assets/amethyst-gem.png");
+}
+
+/* Rose quartz: Select strengths and weaknesses */
+
+.features li:nth-child(6)::before {
+  background-image: url("/assets/rose-quartz-gem.png");
 }
 
 /* Animated fireflies */
@@ -480,4 +472,349 @@ footer p {
   .firefly {
     animation: none;
   }
+}
+/* Homepage panels: match the character-card design */
+
+.home-frame {
+  position: relative;
+  border: 1px solid rgba(242, 212, 111, 0.45);
+  border-radius: 18px;
+  background: rgba(18, 9, 29, 0.88);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(242, 212, 111, 0.1);
+}
+
+.home-frame::before,
+.home-frame::after {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-color: #f2d46f;
+  content: "";
+  pointer-events: none;
+}
+
+.home-frame::before {
+  top: -6px;
+  left: -6px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.home-frame::after {
+  right: -6px;
+  bottom: -6px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.home-frame-ornament {
+  position: absolute;
+  z-index: 2;
+  color: #f2d46f;
+  font-size: 2rem;
+  text-shadow: 0 0 12px rgba(242, 212, 111, 0.75);
+}
+
+.home-frame-top {
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.home-frame-bottom {
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Right-side character features panel */
+
+.features {
+  border: 1px solid rgba(242, 212, 111, 0.45);
+  background: rgba(18, 9, 29, 0.88);
+  color: #eadff3;
+}
+
+.features h3 {
+  color: #fff1ad;
+  text-shadow: 0 0 10px rgba(242, 212, 111, 0.3);
+}
+
+.features li {
+  border: 1px solid rgba(242, 212, 111, 0.25);
+  border-radius: 8px;
+  background: rgba(34, 19, 48, 0.72);
+  color: #eadff3;
+}
+
+.features h4 {
+  color: #caa6dd;
+}
+
+/* Jeweled Begin Building button */
+
+/* Gold Begin Building button */
+
+.begin-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 260px;
+  height: 76px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  border: none;
+  border-radius: 0;
+
+  background: linear-gradient(135deg, #fff0ba 0%, #c59435 50%, #f4d986 100%);
+
+  clip-path: polygon(
+    0 50%,
+    12% 12%,
+    40% 12%,
+    50% 0,
+    60% 12%,
+    88% 12%,
+    100% 50%,
+    88% 88%,
+    60% 88%,
+    50% 100%,
+    40% 88%,
+    12% 88%
+  );
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Gold filling */
+
+.begin-button::before {
+  position: absolute;
+  inset: 3px;
+
+  background: linear-gradient(135deg, #f0d17d 0%, #cfa64f 50%, #e8c670 100%);
+
+  clip-path: inherit;
+  content: "";
+}
+
+/* Remove the extra interior outline */
+
+.begin-button::after {
+  content: none;
+}
+
+/* Purple lettering */
+
+.begin-button-text {
+  position: relative;
+  z-index: 2;
+
+  color: #30163e;
+  font-family: Gabriola, "Palatino Linotype", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  transform: translateY(-6px);
+}
+
+/* Decorative gemstone */
+
+.begin-button-gem {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  z-index: 3;
+
+  width: 9px;
+  height: 9px;
+
+  border: 1px solid rgba(48, 22, 62, 0.5);
+  background: #30163e;
+
+  transform: translateX(-50%) rotate(45deg);
+}
+.begin-button:hover,
+.begin-button:focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.2);
+}
+
+/* Ornate gold frames around homepage panels */
+
+.hero-content.home-frame,
+.features.home-frame {
+  position: relative;
+  border: none;
+  border-radius: 0;
+  background: rgba(18, 9, 29, 0.82);
+  box-shadow: none;
+}
+
+.hero-content.home-frame {
+  padding: 4.5rem 3rem;
+}
+
+.features.home-frame {
+  padding: 5rem 3.5rem;
+}
+
+/* Decorative frame image */
+
+.hero-content.home-frame::before,
+.features.home-frame::before {
+  position: absolute;
+  z-index: 2;
+  inset: -8px;
+  width: auto;
+  height: auto;
+  border: none;
+  background-image: url("/assets/ornate-gold-frame.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  opacity: 0.55;
+  filter: saturate(0.65) brightness(0.8);
+  pointer-events: none;
+  content: "";
+}
+
+/* Remove the previous corner decorations */
+
+.hero-content.home-frame::after,
+.features.home-frame::after {
+  display: none;
+}
+
+.home-frame-ornament {
+  display: none;
+}
+/* Refined homepage frames */
+
+.hero-content.home-frame,
+.features.home-frame {
+  position: relative;
+  border: 1px solid rgba(215, 173, 73, 0.7);
+  border-radius: 12px;
+  background: rgba(18, 9, 29, 0.82);
+  box-shadow:
+    0 0 0 4px rgba(18, 9, 29, 0.9),
+    0 0 0 5px rgba(215, 173, 73, 0.35),
+    0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content.home-frame {
+  padding: 3rem 2.5rem;
+}
+
+.features.home-frame {
+  padding: 3rem 2.5rem;
+}
+
+/* Small gold corner accents */
+
+.hero-content.home-frame::before,
+.features.home-frame::before {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: auto;
+  bottom: auto;
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid #d7ad49;
+  border-left: 2px solid #d7ad49;
+  background-image: none;
+  content: "";
+}
+
+.hero-content.home-frame::after,
+.features.home-frame::after {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-right: 2px solid #d7ad49;
+  border-bottom: 2px solid #d7ad49;
+  background-image: none;
+  content: "";
+}
+
+/* Small decorative stars */
+
+.home-frame-ornament {
+  display: block;
+  color: #d7ad49;
+  font-size: 1.4rem;
+  text-shadow: 0 0 8px rgba(215, 173, 73, 0.45);
+}
+
+.home-frame-top {
+  top: -15px;
+}
+
+.home-frame-bottom {
+  bottom: -15px;
+}
+
+/* Keep each gemstone beside its feature description */
+
+.features li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 1rem 1rem 1rem 3.5rem;
+  border: 1px solid rgba(242, 212, 111, 0.25);
+  border-radius: 8px;
+  background: rgba(34, 19, 48, 0.72);
+  color: #eadff3;
+  font-weight: 700;
+}
+
+/* Center the homepage button */
+
+.hero-content .begin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem auto 0;
+}
+
+/* Keep the button wording centered above its gemstone */
+
+.hero-content .begin-button-text {
+  display: block;
+  text-align: center;
+  transform: translateY(-6px);
+}
+
+/* Center the gemstone below the button wording */
+
+.hero-content .begin-button-gem {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Center Follow the Fireflies beneath the feature list */
+
+.features h4 {
+  display: block;
+  width: 100%;
+  margin: 1.5rem auto 0;
+  text-align: center;
 }

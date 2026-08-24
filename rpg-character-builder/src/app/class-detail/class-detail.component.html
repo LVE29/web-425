@@ -1,0 +1,104 @@
+<section
+  class="detail-page"
+  data-testid="class-detail-page"
+  [class.dream-pixie]="classId === 'dream-pixie'"
+  [class.mushroom-witch]="classId === 'mushroom-witch'"
+  [class.scarlet-sorceress]="classId === 'scarlet-sorceress'"
+>
+  @if (character) {
+    <div class="detail-heading">
+      @if (classId === "dream-pixie") {
+        <span class="cloud-star star-one">★</span>
+        <span class="cloud-star star-two">★</span>
+        <span class="cloud-star star-three">★</span>
+        <span class="cloud-star star-four">★</span>
+        <span class="cloud-star star-five">★</span>
+        <span class="cloud-star star-six">★</span>
+      }
+
+      @if (classId === "mushroom-witch") {
+        <h1 class="mushroom-title">
+          <span>Mushroom</span>
+          <span>Witch</span>
+        </h1>
+      } @else if (classId === "scarlet-sorceress") {
+        <h1 class="scarlet-title">
+          <span>Scarlet</span>
+          <span>Sorceress</span>
+        </h1>
+      } @else {
+        <h1>{{ character.name }}</h1>
+      }
+    </div>
+
+    <p class="character-id-label">
+      Character:
+      <span data-testid="class-id">{{ classId }}</span>
+    </p>
+
+    <div class="portrait-gallery">
+      <div class="gallery-frame portrait-gallery-frame">
+        <span class="frame-detail frame-detail-top">✦</span>
+
+        <img
+          class="gallery-portrait"
+          [src]="character.image"
+          [alt]="character.name"
+        />
+
+        <span class="frame-detail frame-detail-bottom">✦</span>
+      </div>
+
+      @for (ability of character.abilities; track ability.name) {
+        <div class="ability-frame">
+          @if (ability.image) {
+            <img
+              class="ability-illustration"
+              [src]="ability.image"
+              [alt]="ability.name"
+            />
+          }
+
+          <div class="ability-caption">
+            <h2>{{ ability.name }}</h2>
+            <p>{{ ability.description }}</p>
+          </div>
+        </div>
+      }
+
+      <div class="strength-frame">
+        @if (character.strengthImage) {
+          <img
+            class="ability-illustration"
+            [src]="character.strengthImage"
+            [alt]="character.name + ' strength'"
+          />
+        }
+
+        <div class="ability-caption">
+          <h2>Strength</h2>
+          <p>{{ character.strength }}</p>
+        </div>
+      </div>
+
+      <div class="weakness-frame">
+        @if (character.weaknessImage) {
+          <img
+            class="ability-illustration"
+            [src]="character.weaknessImage"
+            [alt]="character.name + ' weakness'"
+          />
+        }
+
+        <div class="ability-caption">
+          <h2>Weakness</h2>
+          <p>{{ character.weakness }}</p>
+        </div>
+      </div>
+    </div>
+
+    <a class="return-button" routerLink="/classes">
+      Return to the Enchanted Forest
+    </a>
+  }
+</section>

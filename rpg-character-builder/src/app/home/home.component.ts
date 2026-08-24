@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   template: `
     <section class="home-page" data-testid="home-page">
       <div class="firefly firefly-one" aria-hidden="true"></div>
@@ -13,17 +14,24 @@ import { Component } from '@angular/core';
       <div class="firefly firefly-five" aria-hidden="true"></div>
 
       <div class="page-layout">
-        <div class="hero-content">
+        <div class="hero-content home-frame">
+          <span class="home-frame-ornament home-frame-top">✦</span>
+
           <h1>{{ pageTitle }}</h1>
 
           <h2>Create a Unique Character for Your Next Adventure</h2>
 
-          <a class="begin-button" href="#character-features">
-            Begin Building
+          <a class="begin-button" routerLink="/classes">
+            <span class="begin-button-gem"></span>
+            <span class="begin-button-text">Begin Building</span>
           </a>
+
+          <span class="home-frame-ornament home-frame-bottom">✦</span>
         </div>
 
-        <div class="features" id="character-features">
+        <div class="features home-frame" id="character-features">
+          <span class="home-frame-ornament home-frame-top">✦</span>
+
           <h3>Build Your Character</h3>
 
           <ul data-testid="character-features">
@@ -36,6 +44,8 @@ import { Component } from '@angular/core';
           </ul>
 
           <h4>Follow the Fireflies</h4>
+
+          <span class="home-frame-ornament home-frame-bottom">✦</span>
         </div>
       </div>
     </section>
