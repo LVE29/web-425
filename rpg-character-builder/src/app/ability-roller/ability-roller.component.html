@@ -1,1 +1,23 @@
-<p>ability-roller works!</p>
+<section class="ability-roller-page">
+  <div class="roller-card">
+    <p class="eyebrow">Firefly Forest Dice Chamber</p>
+    <h2>Ability Score Roller</h2>
+
+    <p class="die-label">Rolling a {{ sides }}-sided die (d{{ sides }})</p>
+
+    <div
+      class="roll-result"
+      data-testid="roll-result"
+      aria-live="polite"
+      aria-label="Current roll result"
+    >
+      {{ result ?? '—' }}
+    </div>
+
+    <button type="button" class="roll-button" data-testid="roll-button" (click)="rollAbility()">
+      Roll Ability
+    </button>
+
+    <p class="range-note">Every result will be between 1 and {{ sides }}.</p>
+  </div>
+</section>
