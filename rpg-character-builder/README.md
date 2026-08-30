@@ -1,27 +1,45 @@
-# RpgCharacterBuilder
+# RPG Character Builder Starter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+This is the minimal starter project for the cumulative WEB 425 RPG Character
+Builder labs. It provides the supported Angular environment, routing,
+Jasmine/Karma testing, and an empty root component. It does not contain any
+weekly RPG features or assignment solutions.
 
-## Development server
+## Prepare the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+From the project root, run:
 
-## Code scaffolding
+```bash
+nvm use
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The `.nvmrc` file selects the Node.js version supported by this course. Use the
+versions defined by the starter rather than generating a replacement project
+with a different Angular CLI.
 
-## Build
+## Run and verify
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm start
+npm test -- --watch=false
+npm run build
+```
 
-## Running unit tests
+The unmodified starter displays an empty routed application and contains one
+unit test that verifies the root component can be created.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Styling choice
 
-## Running end-to-end tests
+WEB 425 evaluates Angular development rather than visual design. The starter
+loads the course-provided W4 stylesheet so students can build a responsive
+interface without writing a styling system.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Students may instead write their own CSS or use a third-party styling library.
+Students who choose another styling approach are responsible for installing,
+configuring, and troubleshooting it. Styling problems do not change the Angular
+requirements, required behavior, accessibility expectations, responsive
+behavior, or unit-test contracts of an assignment.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Do not make behavioral tests depend on framework-specific visual classes unless
+a class is explicitly part of the assignment contract.

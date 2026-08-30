@@ -435,7 +435,7 @@
   background-size: contain;
 }
 
-/* Stacked Scarlet Sorceress title */
+/* Scarlet Sorceress title */
 
 .scarlet-sorceress .detail-heading h1 {
   position: absolute;
@@ -443,22 +443,19 @@
   left: 50%;
   z-index: 2;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 70%;
+  width: 75%;
   margin: 0;
   padding: 0;
 
   transform: translate(-50%, -50%);
 
   font-family: "Cinzel Decorative", Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 700;
   letter-spacing: 0.04em;
-  line-height: 1.05;
+  line-height: 1.15;
   text-align: center;
+  white-space: nowrap;
 
   color: #f0d6bb;
   -webkit-text-fill-color: #f0d6bb;
@@ -466,14 +463,6 @@
   text-shadow:
     0 2px 5px rgba(35, 8, 15, 0.95),
     0 0 12px rgba(220, 68, 84, 0.4);
-}
-
-.scarlet-sorceress .scarlet-title span:first-child {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-}
-
-.scarlet-sorceress .scarlet-title span:last-child {
-  font-size: clamp(1.8rem, 3.2vw, 3rem);
 }
 
 .scarlet-sorceress .ability-caption h2 {
@@ -565,7 +554,7 @@
       "illusions"
       "strength"
       "fear"
-      "weaknessweakness";
+      "weakness";
 
     max-width: 600px;
   }
