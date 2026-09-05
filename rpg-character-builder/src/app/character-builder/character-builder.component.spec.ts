@@ -39,11 +39,14 @@ describe('CharacterBuilderComponent', () => {
     expect(component.characters.length).toBe(0);
   });
 
-  it('should store a valid character with calculated starting hit points', () => {
+  it('should store a valid character with calculated starting hit points', async () => {
     component.name = 'Aria';
-    component.characterClass = 'Wizard';
+    component.characterClass = 'Dream Pixie';
     component.level = 3;
     component.veteran = true;
+    fixture.detectChanges();
+
+    await fixture.whenStable();
     fixture.detectChanges();
 
     const form = fixture.nativeElement.querySelector(
@@ -51,23 +54,28 @@ describe('CharacterBuilderComponent', () => {
     ) as HTMLFormElement;
 
     form.dispatchEvent(new Event('submit'));
+
+    await fixture.whenStable();
     fixture.detectChanges();
 
     expect(component.characters.length).toBe(1);
     expect(component.characters[0]).toEqual({
       name: 'Aria',
-      characterClass: 'Wizard',
+      characterClass: 'Dream Pixie',
       level: 3,
       veteran: true,
       startingHitPoints: 13,
     });
   });
 
-  it('should reset the form model after a successful submission', () => {
+  it('should reset the form model after a successful submission', async () => {
     component.name = 'Aria';
-    component.characterClass = 'Wizard';
+    component.characterClass = 'Dream Pixie';
     component.level = 3;
     component.veteran = true;
+    fixture.detectChanges();
+
+    await fixture.whenStable();
     fixture.detectChanges();
 
     const form = fixture.nativeElement.querySelector(
@@ -75,6 +83,8 @@ describe('CharacterBuilderComponent', () => {
     ) as HTMLFormElement;
 
     form.dispatchEvent(new Event('submit'));
+
+    await fixture.whenStable();
     fixture.detectChanges();
 
     expect(component.name).toBe('');

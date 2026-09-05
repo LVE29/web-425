@@ -1,1 +1,124 @@
-<p>character-builder works!</p>
+<section class="builder-page">
+  <div class="builder-header">
+    <p class="builder-kicker">A New Story Begins</p>
+
+    <h1>Create Your Character</h1>
+
+    <p class="builder-introduction">
+      Give your adventurer a name, choose a path, and prepare them for the journey through Firefly
+      Forest.
+    </p>
+  </div>
+
+  <div class="builder-layout">
+    <form
+      class="character-form"
+      data-testid="character-form"
+      #characterForm="ngForm"
+      (ngSubmit)="createCharacter(characterForm)"
+    >
+      <fieldset>
+        <legend>Character Details</legend>
+
+        <div class="form-field">
+          <label for="characterName">Character Name</label>
+          <input
+            id="characterName"
+            name="name"
+            type="text"
+            required
+            data-testid="character-name"
+            [(ngModel)]="name"
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="characterClass">Character Class</label>
+          <select
+            id="characterClass"
+            name="characterClass"
+            required
+            data-testid="character-class"
+            [(ngModel)]="characterClass"
+          >
+            <option value="">Choose a class</option>
+
+            @for (className of characterClasses; track className) {
+              <option [value]="className">{{ className }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="characterLevel">Level</label>
+          <input
+            id="characterLevel"
+            name="level"
+            type="number"
+            required
+            min="1"
+            max="20"
+            step="1"
+            inputmode="numeric"
+            data-testid="character-level"
+            [(ngModel)]="level"
+          />
+          <small>Choose a whole number from 1 through 20.</small>
+        </div>
+
+        <label class="veteran-choice" for="characterVeteran">
+          <input
+            id="characterVeteran"
+            name="veteran"
+            type="checkbox"
+            data-testid="character-veteran"
+            [(ngModel)]="veteran"
+          />
+          <span>
+            <strong>Veteran Adventurer</strong>
+            Begin the story as an experienced traveler.
+          </span>
+        </label>
+
+        <button
+          class="create-button"
+          type="submit"
+          data-testid="character-submit"
+          [disabled]="characterForm.invalid"
+        >
+          <span class="create-button-gem"></span>
+          <span class="create-button-text">Create Character</span>
+        </button>
+      </fieldset>
+    </form>
+
+    <section
+      class="character-results"
+      data-testid="character-list"
+      aria-labelledby="createdCharactersTitle"
+    >
+      <h2 id="createdCharactersTitle">Created Characters</h2>
+
+      @if (characters.length > 0) {
+        <div class="created-list">
+          @for (character of characters; track $index) {
+            <article class="created-character">
+              <h3>{{ character.name }}</h3>
+              <p>{{ character.characterClass }} · Level {{ character.level }}</p>
+              <p>
+                Starting hit points:
+                <strong>{{ character.startingHitPoints }}</strong>
+              </p>
+
+              @if (character.veteran) {
+                <p class="veteran-label">Veteran Adventurer</p>
+              }
+            </article>
+          }
+        </div>
+      } @else {
+        <p class="empty-message">No characters have stepped into the forest yet.</p>
+      }
+    </section>
+  </div>
+</section>
