@@ -1,0 +1,48 @@
+<section class="classes-page" data-testid="classes-page">
+  <div class="classes-header">
+    <h1>Choose Your Character</h1>
+
+    <p>Follow the fireflies and discover your place in the enchanted forest.</p>
+  </div>
+
+  <div class="character-grid" data-testid="class-list">
+    @for (characterClass of characterClasses; track characterClass.id) {
+      <article
+        class="character-card"
+        [class.dream-pixie]="characterClass.id === 'dream-pixie'"
+        [class.mushroom-witch]="characterClass.id === 'mushroom-witch'"
+        [class.scarlet-sorceress]="characterClass.id === 'scarlet-sorceress'"
+      >
+        <div class="portrait-frame">
+          <span class="frame-ornament frame-ornament-top">✦</span>
+
+          <img
+            class="character-image"
+            [src]="'/assets/' + characterClass.id + '.png'"
+            [alt]="characterClass.name"
+          />
+
+          <span class="frame-ornament frame-ornament-bottom">✦</span>
+        </div>
+
+        <div class="character-content">
+          <h2 class="character-name">
+            {{ characterClass.name }}
+          </h2>
+
+          <div class="character-bio">
+            <p>{{ characterClass.description }}</p>
+          </div>
+
+          <a
+            class="character-button"
+            [routerLink]="['/classes', characterClass.id]"
+          >
+            <span class="button-gem"></span>
+            <span class="button-text">Reveal Her Powers</span>
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>

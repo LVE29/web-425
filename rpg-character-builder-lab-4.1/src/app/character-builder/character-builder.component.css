@@ -1,0 +1,370 @@
+:host {
+  display: block;
+  min-height: calc(100vh - 130px);
+  background:
+    linear-gradient(rgba(11, 5, 20, 0.5), rgba(11, 5, 20, 0.72)),
+    url('/assets/firefly-forest-background.png') center / cover fixed;
+}
+
+.builder-page {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.builder-header {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.builder-kicker {
+  margin: 0 0 0.5rem;
+  color: #f5c85b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+}
+
+.builder-header h1 {
+  margin: 0;
+  color: #ffe58a;
+  font-size: clamp(2.3rem, 6vw, 4rem);
+  line-height: 1.1;
+  text-shadow:
+    0 0 8px rgba(255, 222, 105, 0.9),
+    0 0 24px rgba(211, 167, 55, 0.45);
+}
+
+.builder-header p:last-child {
+  max-width: 650px;
+  margin: 1rem auto 0;
+  color: #eee4f7;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.builder-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.85fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.character-form,
+.character-results {
+  border: 1px solid rgba(229, 190, 82, 0.65);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(35, 18, 49, 0.9), rgba(15, 9, 25, 0.9));
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.38),
+    inset 0 0 25px rgba(130, 88, 161, 0.08);
+}
+
+.character-form {
+  padding: 1.5rem;
+}
+
+.character-form fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.character-form legend,
+.character-results h2 {
+  margin: 0 0 1.5rem;
+  color: #f7cf67;
+  font-size: 1.65rem;
+  text-shadow: 0 0 10px rgba(247, 207, 103, 0.35);
+}
+
+.form-field {
+  margin-bottom: 1.25rem;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #fff7dc;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  border: 1px solid rgba(222, 190, 95, 0.55);
+  border-radius: 9px;
+  padding: 0.7rem 0.85rem;
+  background: rgba(8, 7, 15, 0.82);
+  color: #ffffff;
+  font: inherit;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: 2px solid #f5c85b;
+  outline-offset: 2px;
+  border-color: #f5c85b;
+  box-shadow: 0 0 14px rgba(245, 200, 91, 0.25);
+}
+
+.form-field small {
+  display: block;
+  margin-top: 0.4rem;
+  color: #cfc3da;
+  font-size: 0.8rem;
+}
+
+.veteran-choice {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(145, 107, 175, 0.65);
+  border-radius: 10px;
+  padding: 1rem;
+  background: rgba(92, 54, 114, 0.2);
+  color: #ddd2e7;
+  cursor: pointer;
+}
+
+.veteran-choice input {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.15rem;
+  accent-color: #e9bd4f;
+}
+
+.veteran-choice strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #fff3c4;
+}
+
+.create-button {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #ffe28a;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f8d36e, #c99a2f);
+  color: #351d46;
+  font: inherit;
+  font-weight: 800;
+  letter-spacing: 0.04rem;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(229, 184, 67, 0.28);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.create-button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 184, 67, 0.42);
+}
+
+.create-button:disabled {
+  border-color: #766e79;
+  background: #4d4650;
+  color: #aaa3ad;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.character-results {
+  min-height: 365px;
+  padding: 1.5rem;
+}
+
+.empty-message {
+  margin: 0;
+  border: 1px dashed rgba(229, 190, 82, 0.4);
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  color: #cfc3da;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.created-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.created-character {
+  border-left: 4px solid #e9bd4f;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: rgba(104, 68, 128, 0.24);
+  color: #e8deef;
+}
+
+.created-character h3 {
+  margin: 0 0 0.4rem;
+  color: #fff0ad;
+  font-size: 1.35rem;
+}
+
+.created-character p {
+  margin: 0.3rem 0;
+}
+
+.veteran-label {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  background: rgba(236, 194, 78, 0.16);
+  color: #f7d878;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .builder-page {
+    padding-top: 2rem;
+  }
+
+  .builder-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .character-results {
+    min-height: auto;
+  }
+}
+/* Match the ornate frames used throughout Firefly Forest */
+
+.character-form,
+.character-results {
+  position: relative;
+  border: 1px solid rgba(215, 173, 73, 0.7);
+  border-radius: 12px;
+  background: rgba(18, 9, 29, 0.88);
+  box-shadow:
+    0 0 0 4px rgba(18, 9, 29, 0.9),
+    0 0 0 5px rgba(215, 173, 73, 0.35),
+    0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.character-form::before,
+.character-results::before {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  z-index: 2;
+  color: #f2d46f;
+  font-size: 1.3rem;
+  text-shadow: 0 0 12px rgba(242, 212, 111, 0.8);
+  transform: translateX(-50%);
+  content: '✦';
+}
+
+.character-form::after,
+.character-results::after {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  z-index: 2;
+  color: #f2d46f;
+  font-size: 1.3rem;
+  text-shadow: 0 0 12px rgba(242, 212, 111, 0.8);
+  transform: translateX(-50%);
+  content: '✦';
+}
+
+/* Match the homepage's jeweled gold button */
+
+.create-button {
+  position: relative;
+  display: flex;
+  width: 260px;
+  height: 76px;
+  margin: 1.5rem auto 0;
+  padding: 0 24px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(135deg, #fff0ba 0%, #c59435 50%, #f4d986 100%);
+  clip-path: polygon(
+    0 50%,
+    12% 12%,
+    40% 12%,
+    50% 0,
+    60% 12%,
+    88% 12%,
+    100% 50%,
+    88% 88%,
+    60% 88%,
+    50% 100%,
+    40% 88%,
+    12% 88%
+  );
+  cursor: pointer;
+  box-shadow: none;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.create-button::before {
+  position: absolute;
+  inset: 3px;
+  background: linear-gradient(135deg, #f0d17d 0%, #cfa64f 50%, #e8c670 100%);
+  clip-path: inherit;
+  content: '';
+}
+
+.create-button-text {
+  position: relative;
+  z-index: 2;
+  color: #30163e;
+  font-family: Gabriola, 'Palatino Linotype', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transform: translateY(-6px);
+}
+
+.create-button-gem {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  z-index: 3;
+  width: 9px;
+  height: 9px;
+  border: 1px solid rgba(48, 22, 62, 0.5);
+  background: #30163e;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.create-button:not(:disabled):hover,
+.create-button:not(:disabled):focus-visible {
+  transform: translateY(-3px);
+  filter: brightness(1.2);
+}
+
+.create-button:disabled {
+  background: linear-gradient(135deg, #b8a984 0%, #81745b 50%, #aaa080 100%);
+  cursor: not-allowed;
+  filter: grayscale(0.55);
+  opacity: 0.65;
+}
+.builder-header p.builder-introduction {
+  max-width: 760px;
+  margin: 1rem auto 0;
+  color: #fff2d0;
+  font-family: Gabriola, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.035em;
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.95),
+    0 0 12px rgba(242, 212, 111, 0.35);
+}

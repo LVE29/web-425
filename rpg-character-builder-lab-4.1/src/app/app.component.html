@@ -1,0 +1,28 @@
+<header>
+  <div class="header-content">
+    <p class="brand">✦ Firefly Forest Character Builder ✦</p>
+
+    <nav aria-label="Primary navigation">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </a>
+
+      <a routerLink="/classes" routerLinkActive="active"> Character Classes </a>
+
+      <a routerLink="/roll/6" routerLinkActive="active"> Ability Roller </a>
+
+      <a routerLink="/builder" routerLinkActive="active"> Character Builder </a>
+
+      <a routerLink="/about" routerLinkActive="active"> About </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="sr-only">Hello, {{ title }}</h1>
+  <router-outlet />
+</main>
+
+<footer>
+  <p>WEB 425 · Let the Fireflies Guide Your Character's Story.</p>
+</footer>

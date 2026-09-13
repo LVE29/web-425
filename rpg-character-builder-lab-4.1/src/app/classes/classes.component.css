@@ -1,0 +1,466 @@
+:host {
+  display: block;
+}
+
+.classes-page {
+  min-height: calc(100vh - 150px);
+  padding: 4rem 2rem 5rem;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 2, 13, 0.82) 0%,
+      rgba(24, 7, 33, 0.65) 50%,
+      rgba(8, 2, 13, 0.82) 100%
+    ),
+    url("/assets/firefly-forest-background.png") center center / cover no-repeat;
+}
+
+.classes-header {
+  max-width: 850px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.classes-header h1 {
+  margin: 0 0 1rem;
+  color: #fff1ad;
+  font-size: clamp(3rem, 7vw, 5rem);
+  text-shadow:
+    0 0 12px rgba(242, 212, 111, 0.75),
+    0 0 30px rgba(242, 212, 111, 0.35);
+}
+
+.classes-header p {
+  color: #ead8f7;
+  font-size: 1.2rem;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem;
+  width: min(1250px, 100%);
+  margin: 0 auto;
+}
+
+.character-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid rgba(242, 212, 111, 0.28);
+  border-radius: 18px;
+  background: rgba(18, 9, 29, 0.82);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(242, 212, 111, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.55),
+    0 0 28px rgba(242, 212, 111, 0.25);
+}
+
+.portrait-frame {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  padding: 8px;
+  border: 2px solid #d7ad49;
+  background: rgba(24, 12, 35, 0.9);
+  box-shadow:
+    0 0 12px rgba(242, 212, 111, 0.4),
+    inset 0 0 12px rgba(242, 212, 111, 0.25);
+}
+
+.portrait-frame::before,
+.portrait-frame::after {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-color: #f2d46f;
+  content: "";
+  pointer-events: none;
+}
+
+.portrait-frame::before {
+  top: -7px;
+  left: -7px;
+  border-top: 3px solid;
+  border-left: 3px solid;
+}
+
+.portrait-frame::after {
+  right: -7px;
+  bottom: -7px;
+  border-right: 3px solid;
+  border-bottom: 3px solid;
+}
+
+.character-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.frame-ornament {
+  position: absolute;
+  z-index: 2;
+  color: #f2d46f;
+  font-size: 2rem;
+  text-shadow: 0 0 12px rgba(242, 212, 111, 0.9);
+}
+
+.frame-ornament-top {
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.frame-ornament-bottom {
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.character-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.character-content h2 {
+  margin: 0 0 1rem;
+  color: #fff1ad;
+  font-size: 2rem;
+}
+
+.character-content p {
+  flex: 1;
+  margin: 0 0 1.5rem;
+  color: #ead8f7;
+  line-height: 1.6;
+}
+
+.character-button {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid #f2d46f;
+  border-radius: 999px;
+  background: rgba(242, 212, 111, 0.12);
+  color: #fff1ad;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Ornate fantasy-game buttons */
+
+.character-button {
+  --button-color: #dc9b58;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 76px;
+  padding: 0 24px;
+  background: linear-gradient(
+    135deg,
+    #866325 0%,
+    #f1d484 25%,
+    #b18439 48%,
+    #f1d484 72%,
+    #866325 100%
+  );
+  clip-path: polygon(
+    0 50%,
+    12% 12%,
+    40% 12%,
+    50% 0,
+    60% 12%,
+    88% 12%,
+    100% 50%,
+    88% 88%,
+    60% 88%,
+    50% 100%,
+    40% 88%,
+    12% 88%
+  );
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.character-button::before {
+  position: absolute;
+  inset: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(48, 31, 58, 0.98),
+    rgba(23, 12, 35, 0.98)
+  );
+  clip-path: polygon(
+    0 50%,
+    12% 12%,
+    40% 12%,
+    50% 0,
+    60% 12%,
+    88% 12%,
+    100% 50%,
+    88% 88%,
+    60% 88%,
+    50% 100%,
+    40% 88%,
+    12% 88%
+  );
+  content: "";
+}
+
+.character-button::after {
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(241, 212, 132, 0.45);
+  clip-path: polygon(0 50%, 10% 12%, 90% 12%, 100% 50%, 90% 88%, 10% 88%);
+  content: "";
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
+  color: #f4e5c5;
+  font-family: Gabriola, "Palatino Linotype", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transform: translateY(-7px);
+}
+
+.button-gem {
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  z-index: 3;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  box-shadow: none;
+  transform: translateX(-50%);
+}
+
+/* Dream Pixie: amber gemstone */
+
+/* Dream Pixie: rose quartz gemstone */
+
+.dream-pixie .button-gem {
+  background-image: url("/assets/sapphire-gem.png");
+}
+
+/* Mushroom Witch: emerald gemstone */
+
+.mushroom-witch .button-gem {
+  background-image: url("/assets/emerald-gem.png");
+}
+
+/* Scarlet Sorceress: ruby gemstone */
+
+.scarlet-sorceress .button-gem {
+  background-image: url("/assets/ruby-gem.png");
+}
+
+@media (max-width: 900px) {
+  .character-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+  }
+
+  .classes-header {
+    margin-bottom: 3rem;
+  }
+}
+/* Character names */
+
+.character-name {
+  margin: 0 0 1rem;
+  font-family: Gabriola, "Palatino Linotype", Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Dream Pixie: warm golden glow */
+
+.dream-pixie .character-name {
+  color: #dc9b58;
+  text-shadow:
+    0 0 6px rgba(220, 155, 88, 0.4),
+    0 0 12px rgba(220, 155, 88, 0.2);
+}
+
+/* Mushroom Witch: enchanted forest green */
+
+.mushroom-witch .character-name {
+  color: #65a96a;
+  text-shadow:
+    0 0 8px rgba(73, 131, 77, 0.5),
+    0 0 18px rgba(73, 131, 77, 0.25);
+}
+
+/* Scarlet Sorceress: deep ruby red */
+
+.scarlet-sorceress .character-name {
+  color: #d73745;
+  text-shadow:
+    0 0 8px rgba(183, 33, 48, 0.5),
+    0 0 18px rgba(183, 33, 48, 0.25);
+}
+
+/* Character biographies */
+
+.character-bio {
+  width: 100%;
+  min-height: 115px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(242, 212, 111, 0.2);
+  border-radius: 12px;
+  background: rgba(34, 19, 48, 0.65);
+}
+
+.character-bio p {
+  margin: 0;
+  color: #eadff3;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Subtle biography colors */
+
+.dream-pixie .character-bio {
+  border: 1px solid rgba(220, 155, 88, 0.65);
+  box-shadow: 0 0 10px rgba(220, 155, 88, 0.12);
+}
+
+.mushroom-witch .character-bio {
+  border: 1px solid rgba(73, 131, 77, 0.65);
+  box-shadow: 0 0 10px rgba(73, 131, 77, 0.12);
+}
+
+.scarlet-sorceress .character-bio {
+  border: 1px solid rgba(183, 33, 48, 0.65);
+  box-shadow: 0 0 10px rgba(183, 33, 48, 0.15);
+}
+
+/* Gold-filled Reveal Her Powers buttons */
+
+.character-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 240px;
+  min-height: 60px;
+  margin: 1rem auto 0;
+  padding: 0 1.5rem;
+
+  box-sizing: border-box;
+
+  border: none;
+
+  background: linear-gradient(135deg, #f0d17d 0%, #cfa64f 50%, #e8c670 100%);
+
+  clip-path: polygon(
+    10% 12%,
+    39% 12%,
+    50% 0%,
+    61% 12%,
+    90% 12%,
+    100% 50%,
+    90% 88%,
+    61% 88%,
+    50% 100%,
+    39% 88%,
+    10% 88%,
+    0% 50%
+  );
+
+  color: #30163e;
+
+  font-family: Gabriola, "Palatino Linotype", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1;
+
+  text-align: center;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Remove previous decorative gems and layers */
+
+.character-button::before,
+.character-button::after {
+  content: none;
+}
+
+/* Keep the lettering dark across all three characters */
+
+.dream-pixie .character-button,
+.mushroom-witch .character-button,
+.scarlet-sorceress .character-button {
+  color: #30163e;
+  border: none;
+  box-shadow: none;
+}
+
+/* Subtle glow when hovering */
+
+.character-button:hover {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 8px rgba(227, 190, 100, 0.45));
+}
+
+/* Match the purple lettering on the return button */
+
+.dream-pixie .character-button,
+.mushroom-witch .character-button,
+.scarlet-sorceress .character-button {
+  color: #30163e;
+  -webkit-text-fill-color: #30163e;
+}
+
+/* Match the Dream Pixie's baby-blue detail page. */
+
+.dream-pixie h2,
+.dream-pixie .character-name {
+  color: #a9d9f5;
+  -webkit-text-fill-color: #a9d9f5;
+
+  text-shadow: 0 0 8px rgba(169, 217, 245, 0.35);
+}

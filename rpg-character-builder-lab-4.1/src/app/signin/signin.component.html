@@ -1,0 +1,99 @@
+<section class="signin-page">
+  <div class="signin-panel">
+    <p class="signin-kicker">The Forest Awaits</p>
+    <h1>Sign In to Continue</h1>
+
+    <p class="signin-introduction">
+      Enter your traveler details to continue building your character.
+    </p>
+
+    <form
+      class="signin-form"
+      data-testid="signin-form"
+      [formGroup]="signinForm"
+      (ngSubmit)="signin()"
+      novalidate
+    >
+      <div class="form-field">
+        <label for="username">Traveler Name</label>
+
+        <input
+          id="username"
+          type="text"
+          formControlName="username"
+          data-testid="username"
+          autocomplete="username"
+          aria-describedby="username-help username-validation"
+          [attr.aria-invalid]="
+            signinForm.controls.username.touched && signinForm.controls.username.invalid
+          "
+        />
+
+        <small id="username-help"> Enter a name containing at least three characters. </small>
+
+        @if (signinForm.controls.username.touched && signinForm.controls.username.invalid) {
+          <small
+            id="username-validation"
+            class="validation-error"
+            data-testid="username-error"
+            role="alert"
+          >
+            @if (signinForm.controls.username.hasError('required')) {
+              A traveler name is required.
+            } @else if (signinForm.controls.username.hasError('minlength')) {
+              Traveler name must contain at least three characters.
+            }
+          </small>
+        }
+      </div>
+
+      <div class="form-field">
+        <label for="accessCode">Access Code</label>
+
+        <input
+          id="accessCode"
+          type="text"
+          formControlName="accessCode"
+          data-testid="access-code"
+          autocomplete="off"
+          maxlength="6"
+          aria-describedby="access-code-help access-code-validation"
+          [attr.aria-invalid]="
+            signinForm.controls.accessCode.touched && signinForm.controls.accessCode.invalid
+          "
+        />
+
+        <small id="access-code-help"> Enter exactly six letters or numbers. </small>
+
+        @if (signinForm.controls.accessCode.touched && signinForm.controls.accessCode.invalid) {
+          <small
+            id="access-code-validation"
+            class="validation-error"
+            data-testid="access-code-error"
+            role="alert"
+          >
+            @if (signinForm.controls.accessCode.hasError('required')) {
+              An access code is required.
+            } @else if (signinForm.controls.accessCode.hasError('pattern')) {
+              Access code must contain exactly six letters or numbers.
+            }
+          </small>
+        }
+      </div>
+
+      <button
+        class="signin-button"
+        type="submit"
+        data-testid="signin-submit"
+        [disabled]="signinForm.invalid"
+      >
+        <span class="button-glow" aria-hidden="true"></span>
+        <span>Enter the Forest</span>
+      </button>
+    </form>
+
+    <p class="security-note">
+      This classroom sign-in controls access to the Character Builder. Do not enter a real password.
+    </p>
+  </div>
+</section>

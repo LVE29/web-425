@@ -1,0 +1,177 @@
+.signin-page {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 150px);
+  padding: clamp(3rem, 7vh, 6rem) 1.25rem;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(rgba(10, 3, 16, 0.5), rgba(18, 6, 28, 0.72)),
+    url('/assets/firefly-forest-background.png') center / cover no-repeat;
+}
+
+.signin-page::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: '';
+  background:
+    radial-gradient(circle at 28% 30%, rgba(231, 245, 128, 0.14), transparent 26%),
+    radial-gradient(circle at 72% 65%, rgba(205, 128, 230, 0.15), transparent 30%);
+}
+
+.signin-panel {
+  width: min(520px, 100%);
+  padding: clamp(2rem, 5vw, 3.25rem);
+  border: 1px solid rgba(245, 217, 121, 0.55);
+  border-radius: 20px;
+  background: rgba(21, 8, 30, 0.9);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(211, 135, 232, 0.2),
+    inset 0 0 24px rgba(245, 217, 121, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.signin-kicker {
+  margin: 0 0 0.5rem;
+  color: #d8beff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #ffe995;
+  font-family: Gabriola, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  font-size: clamp(2.8rem, 8vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+    0 0 10px rgba(255, 224, 117, 0.65),
+    0 0 24px rgba(216, 130, 235, 0.4);
+}
+
+.signin-introduction {
+  margin: 1rem auto 2rem;
+  color: #f2e8fa;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.signin-form {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+label {
+  color: #ffe995;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(232, 207, 255, 0.55);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(248, 238, 255, 0.09);
+  color: #fffaf0;
+  font: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+input:focus {
+  border-color: #f5d979;
+  background: rgba(248, 238, 255, 0.14);
+  box-shadow:
+    0 0 0 3px rgba(245, 217, 121, 0.14),
+    0 0 15px rgba(207, 133, 229, 0.25);
+}
+
+input[aria-invalid='true'] {
+  border-color: #ff9caa;
+}
+
+small {
+  color: #cfc0d8;
+  line-height: 1.4;
+}
+
+.validation-error {
+  color: #ffb7c1;
+  font-weight: 700;
+}
+
+.signin-button {
+  position: relative;
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.9rem 1.25rem;
+  overflow: hidden;
+  border: 1px solid #f5d979;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f7df84, #d7aee8);
+  color: #351443;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow:
+    0 0 18px rgba(245, 217, 121, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.signin-button:hover:not(:disabled),
+.signin-button:focus-visible:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 26px rgba(245, 217, 121, 0.55),
+    0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.signin-button:disabled {
+  background: linear-gradient(135deg, #9e9275, #75657d);
+  cursor: not-allowed;
+  filter: grayscale(0.45);
+  opacity: 0.65;
+}
+
+.security-note {
+  margin: 1.5rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(245, 217, 121, 0.2);
+  color: #bfaec9;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 540px) {
+  .signin-page {
+    padding: 2rem 1rem;
+  }
+
+  .signin-panel {
+    padding: 1.75rem 1.25rem;
+  }
+}
