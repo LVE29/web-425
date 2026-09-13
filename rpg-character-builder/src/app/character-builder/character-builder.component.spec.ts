@@ -1,3 +1,5 @@
+import { By } from '@angular/platform-browser';
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CharacterBuilderComponent } from './character-builder.component';
@@ -29,11 +31,9 @@ describe('CharacterBuilderComponent', () => {
   });
 
   it('should not store a character when the form is invalid', () => {
-    const form = fixture.nativeElement.querySelector(
-      '[data-testid="character-form"]',
-    ) as HTMLFormElement;
+    const form = fixture.debugElement.query(By.css('[data-testid="character-form"]'));
 
-    form.dispatchEvent(new Event('submit'));
+    form.triggerEventHandler('ngSubmit', null);
     fixture.detectChanges();
 
     expect(component.characters.length).toBe(0);
@@ -49,11 +49,9 @@ describe('CharacterBuilderComponent', () => {
     await fixture.whenStable();
     fixture.detectChanges();
 
-    const form = fixture.nativeElement.querySelector(
-      '[data-testid="character-form"]',
-    ) as HTMLFormElement;
+    const form = fixture.debugElement.query(By.css('[data-testid="character-form"]'));
 
-    form.dispatchEvent(new Event('submit'));
+    form.triggerEventHandler('ngSubmit', null);
 
     await fixture.whenStable();
     fixture.detectChanges();
@@ -78,11 +76,9 @@ describe('CharacterBuilderComponent', () => {
     await fixture.whenStable();
     fixture.detectChanges();
 
-    const form = fixture.nativeElement.querySelector(
-      '[data-testid="character-form"]',
-    ) as HTMLFormElement;
+    const form = fixture.debugElement.query(By.css('[data-testid="character-form"]'));
 
-    form.dispatchEvent(new Event('submit'));
+    form.triggerEventHandler('ngSubmit', null);
 
     await fixture.whenStable();
     fixture.detectChanges();
