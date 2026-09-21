@@ -1,0 +1,154 @@
+<section class="profile-page">
+  <header class="profile-header">
+    <p class="profile-kicker">Shape Their Story</p>
+
+    <h1>Character Profile</h1>
+
+    <p>
+      Choose the history, nature, and talents that your adventurer will carry
+      into Firefly Forest.
+    </p>
+  </header>
+
+  <div class="profile-layout">
+    <form
+      class="profile-form"
+      data-testid="profile-form"
+      [formGroup]="profileForm"
+      (ngSubmit)="saveProfile()"
+    >
+      <div class="form-field">
+        <label for="backstory">Backstory</label>
+
+        <textarea
+          id="backstory"
+          rows="5"
+          formControlName="backstory"
+          data-testid="backstory"
+          placeholder="Where did your character's journey begin?"
+        ></textarea>
+
+        @if (
+          profileForm.controls.backstory.touched &&
+          profileForm.controls.backstory.invalid
+        ) {
+          <small class="error-message"> A backstory is required. </small>
+        }
+      </div>
+
+      <fieldset data-testid="alignment-group">
+        <legend>Alignment</legend>
+
+        <div class="choice-grid">
+          @for (option of alignmentOptions; track option.id) {
+            <label class="choice-card">
+              <input
+                type="radio"
+                formControlName="alignment"
+                [value]="option.id"
+              />
+
+              <span>{{ option.label }}</span>
+            </label>
+          }
+        </div>
+
+        @if (
+          profileForm.controls.alignment.touched &&
+          profileForm.controls.alignment.invalid
+        ) {
+          <small class="error-message"> Choose an alignment. </small>
+        }
+      </fieldset>
+
+      <fieldset formArrayName="skills" data-testid="skill-options">
+        <legend>Skills</legend>
+
+        <div class="choice-grid skill-grid">
+          @for (option of skillOptions; track option.id; let index = $index) {
+            <label class="choice-card">
+              <input type="checkbox" [formControlName]="index" />
+
+              <span>{{ option.label }}</span>
+            </label>
+          }
+        </div>
+
+        @if (
+          profileForm.controls.skills.touched &&
+          profileForm.controls.skills.invalid
+        ) {
+          <small class="error-message"> Choose at least one skill. </small>
+        }
+      </fieldset>
+
+      <div class="form-field">
+        <label for="homeland">Homeland</label>
+
+        <select id="homeland" formControlName="homeland" data-testid="homeland">
+          <option value="">Choose a homeland</option>
+
+          @for (option of homelandOptions; track option.id) {
+            <option [value]="option.id">
+              {{ option.label }}
+            </option>
+          }
+        </select>
+
+        @if (
+          profileForm.controls.homeland.touched &&
+          profileForm.controls.homeland.invalid
+        ) {
+          <small class="error-message"> Choose a homeland. </small>
+        }
+      </div>
+
+      <button
+        class="save-button"
+        type="submit"
+        data-testid="profile-submit"
+        [disabled]="profileForm.invalid"
+      >
+        Save Profile
+      </button>
+    </form>
+
+    <section
+      class="profile-results"
+      data-testid="profile-list"
+      aria-labelledby="savedProfilesTitle"
+    >
+      <h2 id="savedProfilesTitle">Saved Profiles</h2>
+
+      @if (profiles.length > 0) {
+        <div class="saved-list">
+          @for (profile of profiles; track $index) {
+            <article class="saved-profile">
+              <p>
+                <strong>Homeland:</strong>
+                {{ profile.homeland }}
+              </p>
+
+              <p>
+                <strong>Alignment:</strong>
+                {{ profile.alignment }}
+              </p>
+
+              <p>
+                <strong>Skills:</strong>
+                {{ profile.skills.join(", ") }}
+              </p>
+
+              <h3>Backstory</h3>
+              <p>{{ profile.backstory }}</p>
+            </article>
+          }
+        </div>
+      } @else {
+        <p class="empty-message">
+          No character profiles have been written into the forest's story yet.
+        </p>
+      }
+    </section>
+  </div>
+</section>

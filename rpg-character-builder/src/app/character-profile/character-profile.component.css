@@ -1,0 +1,230 @@
+:host {
+  display: block;
+  min-height: calc(100vh - 130px);
+  background:
+    linear-gradient(rgba(11, 5, 20, 0.52), rgba(11, 5, 20, 0.76)),
+    url('/assets/firefly-forest-background.png') center / cover fixed;
+}
+
+.profile-page {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.profile-header {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.profile-kicker {
+  margin: 0 0 0.5rem;
+  color: #f5c85b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+}
+
+.profile-header h1 {
+  margin: 0;
+  color: #ffe58a;
+  font-size: clamp(2.3rem, 6vw, 4rem);
+  text-shadow:
+    0 0 8px rgba(255, 222, 105, 0.9),
+    0 0 24px rgba(211, 167, 55, 0.45);
+}
+
+.profile-header p:last-child {
+  margin: 1rem auto 0;
+  color: #eee4f7;
+  font:
+    1.35rem/1.5 Gabriola,
+    Georgia,
+    serif;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.profile-form,
+.profile-results {
+  position: relative;
+  border: 1px solid rgba(215, 173, 73, 0.7);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: rgba(18, 9, 29, 0.9);
+  box-shadow:
+    0 0 0 4px rgba(18, 9, 29, 0.9),
+    0 0 0 5px rgba(215, 173, 73, 0.35),
+    0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.profile-form fieldset {
+  min-width: 0;
+  margin: 0 0 1.35rem;
+  border: 0;
+  padding: 0;
+}
+
+.profile-form legend,
+.form-field label,
+.profile-results h2 {
+  display: block;
+  margin: 0 0 0.65rem;
+  color: #f7cf67;
+  font-weight: 700;
+}
+
+.profile-form legend,
+.profile-results h2 {
+  font-size: 1.4rem;
+}
+
+.form-field {
+  margin-bottom: 1.35rem;
+}
+
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(222, 190, 95, 0.55);
+  border-radius: 9px;
+  padding: 0.75rem 0.85rem;
+  background: rgba(8, 7, 15, 0.84);
+  color: #ffffff;
+  font: inherit;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field select {
+  min-height: 46px;
+}
+
+.form-field textarea:focus,
+.form-field select:focus,
+.choice-card:focus-within {
+  outline: 2px solid #f5c85b;
+  outline-offset: 2px;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.skill-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.choice-card {
+  display: flex;
+  gap: 0.55rem;
+  min-height: 44px;
+  box-sizing: border-box;
+  align-items: center;
+  border: 1px solid rgba(145, 107, 175, 0.65);
+  border-radius: 9px;
+  padding: 0.7rem;
+  background: rgba(92, 54, 114, 0.2);
+  color: #eee4f7;
+  cursor: pointer;
+}
+
+.choice-card input {
+  width: 17px;
+  height: 17px;
+  accent-color: #e9bd4f;
+}
+
+.error-message {
+  display: block;
+  margin-top: 0.45rem;
+  color: #ffb8b8;
+}
+
+.save-button {
+  display: block;
+  width: min(260px, 100%);
+  min-height: 52px;
+  margin: 1.5rem auto 0;
+  border: 1px solid #ffe28a;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f8d36e, #c99a2f);
+  color: #30163e;
+  font:
+    700 1.25rem Gabriola,
+    Georgia,
+    serif;
+  cursor: pointer;
+}
+
+.save-button:not(:disabled):hover {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+}
+
+.save-button:disabled {
+  background: linear-gradient(135deg, #b8a984, #81745b);
+  color: #5c5360;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.profile-results {
+  min-height: 430px;
+}
+
+.empty-message {
+  border: 1px dashed rgba(229, 190, 82, 0.4);
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  color: #cfc3da;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.saved-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.saved-profile {
+  border-left: 4px solid #e9bd4f;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: rgba(104, 68, 128, 0.24);
+  color: #e8deef;
+}
+
+.saved-profile p {
+  margin: 0.35rem 0;
+  line-height: 1.5;
+}
+
+.saved-profile h3 {
+  margin: 1rem 0 0.25rem;
+  color: #fff0ad;
+}
+
+@media (max-width: 780px) {
+  .profile-layout,
+  .choice-grid,
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-results {
+    min-height: auto;
+  }
+}
